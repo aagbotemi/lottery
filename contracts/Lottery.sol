@@ -38,7 +38,7 @@ contract Lottery {
     }
 
     // function that allows players to enter the lottery
-    function enterLottery() public payable {
+    function enterLottery() external payable {
         address player = msg.sender;
         uint256 pAmount = msg.value;
         require(pAmount > minAmount, "Amount is not enough!");
@@ -98,7 +98,7 @@ contract Lottery {
     }
 
     // function to get balance of the contract
-    function getContractBalance() public view returns (uint256) {
+    function getContractBalance() external view returns (uint256) {
         return address(this).balance;
     }
 
