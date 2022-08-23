@@ -27,7 +27,7 @@ contract Lottery {
 
     constructor(uint256 _amount, uint8 _noOfPlayers) {
         organizer = msg.sender; // to set the creatot of the lottery contract
-        minAmount = _amount; // to set the minimum amount a player can use to participate
+        minAmount = _amount * 1e18; // to set the minimum amount a player can use to participate
         numberOfPlayers = _noOfPlayers; // to set the minimum amount a player can use to participate
     }
 

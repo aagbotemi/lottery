@@ -1,16 +1,18 @@
 import { ethers } from "hardhat";
 
+// CONTRACT ADDRESS: 0x97310961DDabB4C2b9222eEea31d39557689e9B8
+
 async function main() {
-  
-
   const amount = ethers.utils.parseEther("1");
+  const minAmount = 1;
+  const numberOfPlayers = 10;
 
-  const Lock = await ethers.getContractFactory("Lottery");
-  const lock = await Lock.deploy();
+  const Lottery = await ethers.getContractFactory("Lottery");
+  const lottery = await Lottery.deploy(minAmount, numberOfPlayers);
 
-  await lock.deployed();
+  await lottery.deployed();
 
-  console.log(`Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`);
+  console.log(`Lottery contract has been deployed to ${lottery.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
